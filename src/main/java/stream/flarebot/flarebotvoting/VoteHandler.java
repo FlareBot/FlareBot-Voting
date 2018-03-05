@@ -63,13 +63,12 @@ public class VoteHandler {
 
         voter.giveCookies(cookies);
 
-        /*FlareBotVoting.getInstance().getVoteAnnounceChannel().sendMessage(new EmbedBuilder().setTitle("User Voted!")
+        FlareBotVoting.getInstance().getVoteAnnounceChannel().sendMessage(new EmbedBuilder().setTitle("User Voted!")
                 .setDescription(voter.getTag() + " has just voted and " +
                         "was awarded " + cookies + " " + FLARE_COOKIE
                         + "! Vote and earn some today! "
                         + "\n[Click here to vote!](https://discordbots.org/bot/225652110493089792/vote)")
                 .setColor(Color.pink).build()).queue();
-        */
 
         orderVotes();
     }
