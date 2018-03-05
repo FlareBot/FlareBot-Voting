@@ -11,9 +11,13 @@ public class VoteCommand implements Command {
 
     @Override
     public void onCommand(User user, MessageChannel channel, Message message, String[] strings, Member member) {
-        if (user.getIdLong() != 158310004187725824L) return;
-        VoteHandler.instance().addVote(user.getIdLong());
-        channel.sendMessage("Voted").queue();
+        if (user.getIdLong() != 158310004187725824L) {
+            channel.sendMessage(String.format("You can vote for FlareBot and earn cookies here: <%s>",
+                    "https://discordbots.org/bot/225652110493089792/vote")).queue();
+        } else {
+            VoteHandler.instance().addVote(user.getIdLong());
+            channel.sendMessage("Voted").queue();
+        }
     }
 
     @Override

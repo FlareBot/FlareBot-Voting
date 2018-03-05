@@ -44,7 +44,7 @@
         <dependency>
             <groupId>com.github.FlareBot.WebHookDistributor</groupId>
             <artifactId>Client</artifactId>
-            <version>1.0</version>
+            <version>v1.0.1</version>
         </dependency>
     </dependencies>
 
