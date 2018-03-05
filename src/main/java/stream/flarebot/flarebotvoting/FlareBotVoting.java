@@ -80,7 +80,7 @@ public class FlareBotVoting extends JBA {
                 connection.createStatement().execute(sb.toString());
 
                 ResultSet set = connection.createStatement().executeQuery("SELECT SUM(total_votes) AS overall_votes, " +
-                        "SUM(february) AS month_votes FROM votes_" + getYear());
+                        "SUM(" + getMonth() + ") AS month_votes FROM votes_" + getYear());
                 set.next();
                 VoteHandler.instance().setTotalVotes(set.getInt("month_votes"), set.getInt("overall_votes"));
 
