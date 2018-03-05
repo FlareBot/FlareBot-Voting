@@ -73,10 +73,10 @@ public class FlareBotVoting extends JBA {
             SQLController.runSqlTask(connection -> {
                 StringBuilder sb = new StringBuilder();
                 sb.append("CREATE TABLE IF NOT EXISTS votes_").append(Year.now().getValue()).append(" (")
-                        .append("user_id VARCHAR(20) PRIMARY KEY, ");
+                        .append("user_id VARCHAR(20) PRIMARY KEY, user_tag VARCHAR(40) NOT NULL, ");
                 for (Month m : Month.values())
                     sb.append(m.name().toLowerCase()).append(" TINYINT(3) DEFAULT 0, ");
-                sb.append("total_votes INT(9) DEFAULT 0)");
+                sb.append("total_votes INT(9) DEFAULT 0, cookies INT(11) DEFAULT 0)");
                 connection.createStatement().execute(sb.toString());
 
                 ResultSet set = connection.createStatement().executeQuery("SELECT SUM(total_votes) AS overall_votes, " +
