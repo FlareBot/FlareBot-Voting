@@ -5,6 +5,7 @@ import com.walshydev.jba.JBA;
 import com.walshydev.jba.SQLController;
 import com.walshydev.jba.scheduler.JBATask;
 import net.dv8tion.jda.core.AccountType;
+import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.TextChannel;
 import stream.flarebot.flarebotvoting.commands.CookiesCommand;
 import stream.flarebot.flarebotvoting.commands.QuitCommand;
@@ -50,6 +51,8 @@ public class FlareBotVoting extends JBA {
 
     @Override
     public void run() {
+        getClient().getPresence().setGame(Game.playing("/vote"));
+
         registerCommand(new VoteCommand());
         registerCommand(new CookiesCommand());
         registerCommand(new QuitCommand());
